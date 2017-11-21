@@ -11,6 +11,8 @@ Static version of [this](https://github.com/nextgtrgod/gallery)
 
 ![gallery screenshot](https://image.ibb.co/dtxvsb/gallery_v5.jpg)
 
+[DEMO](https://nextgtrgod.github.io/gallery-static)
+
 
 ## Todo
 - [x] CSS Grid layout

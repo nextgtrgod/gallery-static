@@ -76,7 +76,7 @@ module.exports = {
         new ExtractTextPlugin('[name].css'),
         // new webpack.optimize.UglifyJsPlugin({
         //     compress: {
-        //         warnings: false,
+        //         warnings: true,
         //         screw_ie8: true,
         //         conditionals: true,
         //         unused: true,
@@ -110,8 +110,8 @@ module.exports = {
         // }
     },
 
-    devtool: 'cheap-eval-source-map',
-    // devtool: 'cheap-module-source-map',
+    // devtool: 'cheap-eval-source-map',
+    devtool: 'cheap-module-source-map',
     
     resolve: {
         extensions: ['.js', '.jsx', '.json', '*']

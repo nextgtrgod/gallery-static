@@ -29,23 +29,7 @@ class App extends React.Component {
 		};
 	}
 
-	// async getData() {
-	// 	try {
-	// 		let res = await makeRequest('GET', '/api/getData');
-
-	// 		if (res.status === 'success') {
-	// 			this.setState({ data: res.data.images });
-	// 		} else {
-	// 			console.log(res.message);
-	// 		}
-
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	};
-	// }
-
 	componentWillMount() {
-		// this.getData();
 
 		if (!detectSupport('grid')) {
 			const root = document.getElementsByTagName('html')[0];
@@ -59,7 +43,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<Router>
+			<Router basename='/gallery-static'>
 				<Route render={({ location }) =>
 					<TransitionGroup className='page'>
 						<CSSTransition
@@ -89,32 +73,4 @@ class App extends React.Component {
 	}
 }
 
-
 ReactDOM.render(<App />, document.getElementById('root'));
-
-
-
-
-
-
-
-
-
-// import imagesLoaded from 'imagesloaded';
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-
-// 	const galleryItems = document.getElementsByClassName('gallery__item');
-
-
-// 	[...galleryItems].map(item => {
-// 		imagesLoaded(
-// 			item,
-// 			{ background: true },
-// 			() => {
-// 				item.classList.add('loaded');
-// 			});
-// 	});
-
-// });
