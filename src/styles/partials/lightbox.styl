@@ -1,0 +1,85 @@
+
+.lightbox
+	absolute()
+	background-color #252626
+	opacity 0
+	transform scale(.8)
+	transition all .2s
+	pointer-events none
+
+	&[data-visible='true']
+		opacity 1
+		transform scale(1)
+		pointer-events all
+		button
+			opacity 1
+			transform translate3d(0, 0, 0)
+	
+
+	button
+		position absolute
+		margin auto
+		padding 0
+		border none
+		background-color transparent
+		width 2.5vw
+		height 2.5vw
+		opacity 0
+		transition transform .4s .2s, opacity .4s .2s
+		cursor pointer
+		svg
+			absolute()
+			width 100%
+			height 100%
+			fill #FFF
+			transition opacity .2s
+			opacity .6
+
+		&:focus
+		&:hover
+			outline none
+			svg
+				opacity 1
+
+	&__nav
+		&--prev
+			top 0
+			bottom 0
+			left 2vw
+			height 10vh
+			transform translate3d(100%, 0, 0)
+		
+		&--next
+			top 0
+			bottom 0
+			right 2vw
+			height 10vh
+			transform translate3d(-100%, 0, 0)
+		
+		&--close
+			top 2vh
+			right 2vw
+			transform translate3d(0, -100%, 0)
+
+	&__image
+		absolute()
+		margin auto
+		width 90vw
+		height 90vh
+		background-color #252626
+		background-contain()
+		image-rendering -webkit-optimize-contrast
+		&:hover
+			cursor pointer
+
+
+
+.lightbox-transition
+	&-enter
+		&-active
+			animation fade-in .2s forwards
+
+
+	&-exit
+		&-active
+			animation fade-out .2s forwards

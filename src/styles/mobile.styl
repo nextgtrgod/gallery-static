@@ -1,0 +1,77 @@
+
+body
+	height 100%
+	background-color #333
+
+
+.gallery
+	display grid
+	padding 0
+	margin 0
+	width 100%
+
+	grid-template-columns repeat(2, 50%)
+	grid-auto-rows (100/2)vw
+	grid-auto-flow dense
+	grid-row-gap 10px
+		
+	@media(min-width 26rem)
+		grid-template-columns repeat(3, (100/3)%)
+		grid-auto-rows (100/3)vw
+	
+	@media(min-width 50rem)
+		grid-template-columns repeat(4, 25%)
+		grid-auto-rows 25vw
+
+	@media(min-width 60rem)
+		grid-template-columns repeat(5, 20%)
+		grid-auto-rows 20vw
+		
+	@media(min-width 80rem)
+		grid-template-columns repeat(6, (100/6)%)
+		grid-auto-rows (100/6)vw
+	
+	&__item
+		height 100%
+		margin 5px
+		background-size cover
+		background-position center
+		background-repeat no-repeat
+		image-rendering pixelated
+		opacity 0
+		box-shadow 0px 0px 5px #111
+		transition opacity .6s
+		&[data-loaded='true']
+			opacity 1 
+
+		&[data-size='wide']
+			grid-column auto / span 2
+			
+		&[data-size='tall']
+			grid-row auto / span 2
+			
+		&[data-size='big']
+			grid-column auto / span 2
+			grid-row auto / span 2
+
+
+// ie
+html.no-grid
+
+	.gallery
+		display flex
+		flex-wrap wrap
+
+		&__item
+			flex-basis: calc(50% - 10px)
+			height: (100/2)vw
+
+			&[data-size='wide']
+				flex-basis 100%
+				
+			&[data-size='big']
+				flex-basis 100%
+				height 66vw
+
+
+@import 'partials/scrollbar'

@@ -1,0 +1,53 @@
+
+.page-transition
+	&-enter
+		&-active
+			&:after
+				opacity 0
+				animation fade-in 1s forwards, drop-text-shadow 1s forwards
+				animation-delay 1s
+
+			.gallery__item
+				&.loaded
+					opacity 0
+					pointer-events none
+					animation fade-in-transparent 0s forwards
+					animation-delay 1s
+					.revealer
+						animation showY 1s cubic-bezier(.7, 0, .3, 1) forwards
+						// animation-delay 1s
+					
+					&:nth-of-type(1)
+						.revealer
+							animation-delay (1 + 0)s
+
+					for i in (1..11)
+						&:nth-of-type({i + 1})
+							.revealer
+								animation-delay (1 + (.05 * i))s
+		
+			.gallery__link
+				opacity 0
+				transition opacity 0s
+				animation fade-in 1s forwards
+				animation-delay 1s
+
+
+	&-exit
+		&-active
+			pointer-events none
+			&:after
+				animation fade-out .5s forwards
+				animation-delay .5s
+
+			.gallery__item
+				animation fade-out 0s forwards
+				animation-delay 1s
+				pointer-events none
+				.revealer
+					animation hideY 1s cubic-bezier(.7, 0, .3, 1) forwards
+					animation-delay 0s !important
+
+			.gallery__link
+				animation fade-out .5s forwards
+				pointer-events none
